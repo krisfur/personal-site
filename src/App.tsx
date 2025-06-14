@@ -31,8 +31,8 @@ function App() {
                 icon: <FaInstagram />,
               },
             ]}
-            avatarUrl="/src/assets/kris.png"
-            miniAvatarUrl="/src/assets/kris.jpg"
+            avatarUrl="/kris.png"
+            miniAvatarUrl="/kris.jpg"
             showUserInfo={true}
             enableTilt={true}
             onContactClick={() => console.log("Contact clicked")}
