@@ -69,4 +69,4 @@ Deploy to Vercel, Netlify, or GitHub Pages. The build output is in `dist/`.
 
 ---
 
-Built by [Krzysztof Furman](https://your-site.com)
+Built by [Krzysztof Furman](https://github.com/krisfur)
