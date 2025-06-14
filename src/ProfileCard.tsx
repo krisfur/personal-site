@@ -302,39 +302,24 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
                   </div>
                 </div>
                     {contactLinks?.length ? (
-                    <div
-                        className="pc-contact-links"
-                        style={{
-                        display: "flex",
-                        flexDirection: "row",
-                        alignItems: "center",
-                        justifyContent: "flex-end",
-                        gap: "0.4rem", // spacing between icons
-                        }}
-                    >
+                    <div className="pc-contact-links">
                         {contactLinks.map((link, i) => (
                         <a
                             key={i}
                             href={link.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="pc-contact-btn flex items-center justify-center w-10 h-10 p-0 rounded-full"
-                            style={{ pointerEvents: "auto" }}
+                            className="pc-contact-btn-icon"
                         >
-                            <span className="text-xl">{link.icon}</span>
+                            <span className="pc-contact-icon">{link.icon}</span>
                         </a>
                         ))}
                     </div>
                     ) : (
-                    <button
-                        className="pc-contact-btn"
-                        onClick={handleContactClick}
-                        style={{ pointerEvents: "auto" }}
-                    >
+                    <button className="pc-contact-btn" onClick={handleContactClick}>
                         {contactText}
                     </button>
                     )}
-
               </div>
             )}
           </div>

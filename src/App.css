@@ -1,0 +1,45 @@
+/* App.css */
+
+.app-main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background-color: #1e1e2e; /* Catppuccin Mocha base */
+  color: #cdd6f4;            /* Catppuccin Mocha text */
+}
+
+.app-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+  max-width: 96rem;
+  width: 100%;
+}
+
+.profile-wrapper {
+  flex-shrink: 0;
+}
+
+.text-panel {
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  max-width: 640px;
+  width: 100%;
+}
+
+.text-panel h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.text-panel p {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #a6adc8; /* Subtext from Catppuccin */
+}
