@@ -1,6 +1,6 @@
 import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 import ProfileCard from "./ProfileCard";
-import './App.css'; // Make sure you create this!
+import "./App.css";
 
 function App() {
   return (
@@ -35,7 +35,7 @@ function App() {
             miniAvatarUrl="/src/assets/kris.jpg"
             showUserInfo={true}
             enableTilt={true}
-            onContactClick={() => console.log('Contact clicked')}
+            onContactClick={() => console.log("Contact clicked")}
           />
         </div>
 

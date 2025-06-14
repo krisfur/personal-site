@@ -1,5 +1,6 @@
 /* App.css */
 
+/* Base layout */
 .app-main {
   min-height: 100vh;
   display: flex;
@@ -10,19 +11,30 @@
   color: #cdd6f4;            /* Catppuccin Mocha text */
 }
 
+/* Container for card and text */
 .app-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   gap: 2rem;
   max-width: 96rem;
   width: 100%;
 }
 
+/* Force horizontal layout on medium+ screens */
+@media (min-width: 768px) {
+  .app-container {
+    flex-direction: row;
+    justify-content: center;
+    gap: 4rem;
+  }
+}
+
 .profile-wrapper {
   flex-shrink: 0;
 }
 
+/* Right-hand panel styling */
 .text-panel {
   padding: 2rem;
   background-color: rgba(255, 255, 255, 0.05);
@@ -32,12 +44,14 @@
   width: 100%;
 }
 
+/* Headline styling */
 .text-panel h1 {
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 1rem;
 }
 
+/* Paragraph styling */
 .text-panel p {
   font-size: 1.125rem;
   line-height: 1.6;
