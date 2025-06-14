@@ -64,7 +64,7 @@ Edit `ProfileCard.tsx` props in `main.tsx` or `App.tsx` to update:
 
 ## 📦 Deployment
 
-Deploy to Vercel, Netlify, or GitHub Pages. The build output is in `dist/`.
+Deployed to Vercel [here](https://personal-site-teal-sigma-58.vercel.app/). The build output is in `dist/`.
 
 ---
 
