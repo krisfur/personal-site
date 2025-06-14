@@ -3,7 +3,6 @@
 This is a modern personal site built with:
 
 * ⚛️ **React**
-* 🌬️ **TailwindCSS**
 * ⚡ **Vite**
 * ✨ **Custom holographic Profile Card UI**
 
@@ -37,7 +36,6 @@ This is a modern personal site built with:
 
 * Responsive animated profile card with gradient/tilt effects
 * Customizable social contact icons
-* TailwindCSS utility-first styling
 * Clean minimal starter layout
 
 ## 🧱 Credit
@@ -49,10 +47,11 @@ Profile card design inspired by [ReactBits Profile Card Component](https://www.r
 ```
 src/
 ├── App.tsx               # Main page wrapper
+├── App.css               # Main page elements styles
 ├── ProfileCard.tsx       # Custom card component
 ├── ProfileCard.css       # Associated styles
 ├── main.tsx              # React entrypoint
-├── index.css             # Tailwind + base styles
+├── index.css             # base styles
 ```
 
 ## 🛠️ Customization
