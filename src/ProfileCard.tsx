@@ -60,6 +60,10 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   innerGradient,
   showBehindGradient = true,
   className = "",
+//   enableTilt = (() => {
+//     if (typeof window === "undefined") return false;
+//     return !('ontouchstart' in window || navigator.maxTouchPoints > 0);
+//     })(),
   enableTilt = true,
   miniAvatarUrl,
   name = "Javi A. Torres",
@@ -311,7 +315,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
                             rel="noopener noreferrer"
                             className="pc-contact-btn-icon"
                         >
-                            <span className="pc-contact-icon">{link.icon}</span>
+                            <span>{link.icon}</span>
                         </a>
                         ))}
                     </div>
