@@ -43,8 +43,17 @@ function App() {
         <div className="text-panel">
           <h1>Hi, I'm Kris</h1>
           <p>
-            Welcome to my personal site. Built with React, TypeScript, and previously TailwindCSS.
-            This section will hold cool animated intro text, project highlights, and more.
+            👨‍💻 Senior Data Engineer at the ASA 
+            <br />
+            🎓 PhD in Particle Physics (QMUL)
+            <br /><br />
+            🔧 Building scalable systems & managing data engineers for the UK’s ad regulator.
+            <br /><br />
+            💻 Experienced in DAQ dev with C++, data pipelines & analysis in Python, and orchestrating cloud infra on AWS & Azure with Apache Airflow.
+            <br /><br />
+            🧪 Currently exploring Rust, Go, and modern JavaScript frameworks.
+            <br /><br />
+            🥋 Also: 4th Dan Taekwondo & MMA coach at SX MMA.
           </p>
         </div>
       </div>
