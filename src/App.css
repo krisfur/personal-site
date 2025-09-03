@@ -2,58 +2,66 @@
 
 /* Base layout */
 .app-main {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem;
-  background-color: #1e1e2e; /* Catppuccin Mocha base */
-  color: #cdd6f4;            /* Catppuccin Mocha text */
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background-color: #1e1e2e; /* Catppuccin Mocha base */
+    color: #cdd6f4; /* Catppuccin Mocha text */
 }
 
 /* Container for card and text */
 .app-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-  max-width: 96rem;
-  width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    max-width: 96rem;
+    width: 100%;
 }
 
 /* Force horizontal layout on medium+ screens */
 @media (min-width: 768px) {
-  .app-container {
-    flex-direction: row;
-    justify-content: center;
-    gap: 4rem;
-  }
+    .app-container {
+        flex-direction: row;
+        justify-content: center;
+        gap: 4rem;
+    }
 }
 
 .profile-wrapper {
-  flex-shrink: 0;
+    flex-shrink: 0;
 }
 
 /* Right-hand panel styling */
 .text-panel {
-  padding: 2rem;
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 1rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-  max-width: 640px;
-  width: 100%;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    max-width: 640px;
+    width: 100%;
 }
 
 /* Headline styling */
 .text-panel h1 {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
 }
 
 /* Paragraph styling */
 .text-panel p {
-  font-size: 1.125rem;
-  line-height: 1.6;
-  color: #a6adc8; /* Subtext from Catppuccin */
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: #a6adc8; /* Subtext from Catppuccin */
+}
+
+code {
+    background-color: #2f2f2f; /* A light gray background */
+    padding: 2px 5px; /* Adds a little space around the text */
+    border-radius: 4px; /* Rounds the corners */
+    font-family:
+        Consolas, "Courier New", monospace; /* Ensures a consistent monospace font */
 }

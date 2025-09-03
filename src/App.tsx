@@ -45,17 +45,59 @@ function App() {
         <div className="text-panel">
           <h1>Hi, I'm Kris</h1>
           <p>
-            👨‍💻 Senior Data Engineer at the ASA 
+            👨‍💻 Senior Data Engineer at the ASA
             <br />
-            🎓 PhD in Particle Physics (QMUL)
-            <br /><br />
-            🔧 Building scalable systems & managing data engineers for the UK's ad regulator.
-            <br /><br />
-            💻 Experienced in DAQ dev with C++, data pipelines & analysis in Python, and orchestrating cloud infra on AWS & Azure with Apache Airflow.
-            <br /><br />
-            🧪 Currently exploring Rust, Go, and modern JavaScript frameworks.
-            <br /><br />
+            🎓 <code>PhD</code> in Particle Physics (QMUL)
+            <br />
+            <br />
+            🔧 Building scalable systems & managing data engineers for the UK's
+            ad regulator.
+            <br />
+            <br />
+            💻 Experienced in <code>C++</code> (detector DAQ, socket networking)
+            and <code>Python</code> (data analysis, multithreading, ML).
+            <br />
+            <br />
+            ☁️ Proficient in cloud deployment (VMs, containers, web apps) and
+            data infrastructure on <code>Azure</code> and <code>AWS</code>.
+            <br />
+            <br />
+            ⚙️ Passionate about understanding language strengths and weaknesses;
+            currently exploring <code>Go</code>, <code>Rust</code>, and{" "}
+            <code>TypeScript</code>.
+            <br />
+            <br />
             🥋 Also: 4th Dan Taekwondo & MMA coach at SX MMA.
+          </p>
+        </div>
+
+        {/* Work Experience Panel */}
+        <div className="text-panel">
+          <h1>Work Experience</h1>
+          <p>
+            <b>Senior Data Engineer</b> @ Advertising Standards Authority
+            <br />
+            <i>2023 - Present</i>
+            <br />
+            <br />
+            <b>Doctoral Researcher</b> @ Queen Mary University of London
+            <br />
+            <i>2020 - 2023</i>
+            <br />
+            <br />
+            <b>Senior Data Engineer</b> @ Rewire Online
+            <br />
+            <i>2021 - 2022</i>
+            <br />
+            <br />
+            <b>Data Analyst</b> @ The Alan Turing Institute
+            <br />
+            <i>2020 - 2020</i>
+            <br />
+            <br />
+            <b>Data Engineer</b> @ Human Digital
+            <br />
+            <i>2020 - 2020</i>
           </p>
         </div>
       </div>
