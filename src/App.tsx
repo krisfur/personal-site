@@ -45,20 +45,16 @@ function App() {
         <div className="text-panel">
           <h1>Hi, I'm Kris</h1>
           <p>
-            👨‍💻 Senior Data Engineer at the ASA
-            <br />
-            🎓 <code>PhD</code> in Particle Physics (QMUL)
-            <br />
-            <br />
-            🔧 Building scalable systems & managing data engineers for the UK's
-            ad regulator.
+            👨‍💻 Senior Data Engineer at the ASA.
+          <br />
+              🎓 <code>PhD</code> in Particle Physics (QMUL)
             <br />
             <br />
               💻 Experienced in <code>C++</code>, <code>Python</code>, and <code>SQL</code> in software development and data science environments.
             <br />
             <br />
             ☁️ Proficient in cloud deployment (VMs, containers, web apps) and
-            data infrastructure on <code>Azure</code> and <code>AWS</code>.
+              data infrastructure on <code>Azure</code> and <code>AWS</code>, with orchestration through <code>Apache Airflow</code> and data management with <code>Snowflake</code>.
             <br />
             <br />
             ⚙️ Passionate about understanding language strengths and weaknesses;
@@ -66,7 +62,7 @@ function App() {
             <code>TypeScript</code>.
             <br />
             <br />
-            🥋 Also: 4th Dan Taekwondo & MMA coach at SX MMA.
+            🥋 Also 4th Dan Taekwondo & MMA coach at SX MMA.
           </p>
         </div>
 
