@@ -54,7 +54,7 @@ function App() {
             ad regulator.
             <br />
             <br />
-              💻 Experienced in <code>C++</code>, <code>Python</code>, and <code>SQL</code> in software devlopment and data science environments.
+              💻 Experienced in <code>C++</code>, <code>Python</code>, and <code>SQL</code> in software development and data science environments.
             <br />
             <br />
             ☁️ Proficient in cloud deployment (VMs, containers, web apps) and
