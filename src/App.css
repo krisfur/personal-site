@@ -22,7 +22,7 @@
 }
 
 /* Force horizontal layout on medium+ screens */
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     .app-container {
         flex-direction: row;
         justify-content: center;
