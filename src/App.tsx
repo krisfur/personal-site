@@ -53,7 +53,7 @@ function App() {
               💻 Experienced in <code>C++</code>, <code>Python</code>, and <code>SQL</code> in software development and data science environments.
             <br />
             <br />
-            ☁️ Proficient in cloud deployment (VMs, containers, web apps) and
+            ☁️ Proficient in cloud deployment and
               data infrastructure on <code>Azure</code> and <code>AWS</code>, orchestration through <code>Apache Airflow</code>, and data management with <code>Snowflake</code>.
             <br />
             <br />
