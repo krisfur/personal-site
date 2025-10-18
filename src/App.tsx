@@ -50,16 +50,15 @@ function App() {
               🎓 <code>PhD</code> in Particle Physics (QMUL).
             <br />
             <br />
-              💻 Experienced in <code>C++</code>, <code>Python</code>, and <code>SQL</code> in software development and data science environments.
+              💻 Experienced in <code>C++</code>, <code>Python</code>, <code>Rust</code>, <code>SQL</code>, and <code>TypeScript</code> in software development and data science environments.
             <br />
             <br />
-            ☁️ Proficient in cloud deployment and
-              data infrastructure on <code>Azure</code> and <code>AWS</code>, orchestration through <code>Apache Airflow</code>, and data management with <code>Snowflake</code>.
+            ☁️ Proficient in cloud deployment (DevOps) and
+              data infrastructure (DataOps) on <code>Azure</code> and <code>AWS</code>, orchestration through <code>Apache Airflow</code>, and data management with <code>Snowflake</code>.
             <br />
             <br />
             ⚙️ Passionate about understanding language strengths and weaknesses;
-            currently exploring <code>Go</code>, <code>Rust</code>, and{" "}
-            <code>TypeScript</code>.
+            currently exploring <code>Go</code> and <code>Kotlin</code>.
             <br />
             <br />
             🥋 Also 4th Dan Taekwondo & MMA coach at SX MMA.
