@@ -95,6 +95,30 @@ function App() {
           </p>
         </div>
       </div>
+        {/* Footer with badges */}
+        <footer className="badges-footer">
+            <div className="badge-row">
+                <img src="https://img.shields.io/badge/C++-00599C?style=flat&logo=cplusplus&logoColor=white" alt="C++"/>
+                <img src="https://img.shields.io/badge/Go-00ADD8?style=flat&logo=go&logoColor=white" alt="Go"/>
+                <img src="https://img.shields.io/badge/Kotlin-7F52FF?style=flat&logo=kotlin&logoColor=white" alt="Kotlin"/>
+                <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white" alt="Python"/>
+                <img src="https://img.shields.io/badge/Rust-F74C00?style=flat&logo=rust&logoColor=white" alt="Rust"/>
+                <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white"
+                     alt="TypeScript"/>
+            </div>
+            <div className="badge-row">
+                <img src="https://img.shields.io/badge/Apache%20Airflow-ffffff?style=flat&logo=apacheairflow&logoColor=black"
+                     alt="Apache Airflow"/>
+                <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white"
+                     alt="PostgreSQL"/>
+                <img src="https://img.shields.io/badge/Snowflake-29B5E8?style=flat&logo=snowflake&logoColor=white"
+                     alt="Snowflake"/>
+            </div>
+            <div className="badge-row">
+                <img src="https://a11ybadges.com/badge?logo=amazonaws" height="18" alt="AWS"/>
+                <img src="https://a11ybadges.com/badge?logo=microsoftazure" height="18" alt="Azure"/>
+            </div>
+        </footer>
     </main>
   );
 }
