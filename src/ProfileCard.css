@@ -521,8 +521,8 @@
 }
 
 .pc-contact-btn-icon {
-    width: clamp(20px, min(4.5vw, 5vh), 44px);
-    height: clamp(20px, min(4.5vw, 5vh), 44px);
+    width: clamp(34px, min(4.5vw, 5vh), 44px);
+    height: clamp(34px, min(4.5vw, 5vh), 44px);
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.08);
     display: flex;
@@ -533,7 +533,7 @@
     transition: background-color 0.2s ease, transform 0.2s ease;
     cursor: pointer;
     text-decoration: none;
-    font-size: clamp(10px, min(2.2vw, 2.4vh), 20px);
+    font-size: clamp(16px, min(2.2vw, 2.4vh), 20px);
     z-index: 10;
     flex-shrink: 0;
 }
