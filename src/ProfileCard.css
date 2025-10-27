@@ -177,7 +177,7 @@
 }
 
 .pc-avatar-content {
-  mix-blend-mode: screen;
+  mix-blend-mode: normal;
   overflow: hidden;
 }
 
@@ -188,6 +188,13 @@
   transform: translateX(-50%) scale(0.85);
   top: 7px;
   opacity: calc(1.75 - var(--pointer-from-center));
+  filter: grayscale(1);  /* Add grayscale by default */
+  transition: filter 0.3s ease;  /* Smooth transition */
+}
+
+.pc-card:hover .pc-avatar-content .avatar,
+.pc-card.active .pc-avatar-content .avatar {
+    filter: grayscale(0);  /* Remove grayscale on hover */
 }
 
 .pc-avatar-content::before {
@@ -241,6 +248,13 @@
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
+  filter: grayscale(1);  /* Add grayscale by default */
+  transition: filter 0.3s ease;  /* Smooth transition */
+}
+
+.pc-card:hover .pc-mini-avatar img,
+.pc-card.active .pc-mini-avatar img {
+    filter: grayscale(0);  /* Remove grayscale on hover */
 }
 
 .pc-user-text {
@@ -288,7 +302,7 @@
   position: relative;
   transform: translate3d(calc(var(--pointer-from-left) * -6px + 3px), calc(var(--pointer-from-top) * -6px + 3px), 0.1px) !important;
   z-index: 5;
-  mix-blend-mode: luminosity;
+  mix-blend-mode: normal;
 }
 
 .pc-details {
