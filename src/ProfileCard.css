@@ -185,8 +185,8 @@
   width: 100%;
   position: absolute;
   left: 50%;
-  transform: translateX(-50%) scale(1);
-  bottom: 2px;
+  transform: translateX(-50%) scale(0.85);
+  top: 7px;
   opacity: calc(1.75 - var(--pointer-from-center));
 }
 
@@ -294,7 +294,7 @@
 .pc-details {
   width: 100%;
   position: absolute;
-  top: 3em;
+  top: 1em;
   display: flex;
   flex-direction: column;
 }

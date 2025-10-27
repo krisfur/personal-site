@@ -33,7 +33,7 @@ function App() {
                 icon: <FaInstagram />,
               },
             ]}
-            avatarUrl="/kris.png"
+            avatarUrl="/kris-taller.png"
             miniAvatarUrl="/kris.jpg"
             showUserInfo={true}
             enableTilt={true}
