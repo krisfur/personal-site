@@ -58,7 +58,7 @@ function App() {
             <br />
             <br />
             ⚙️ Passionate about understanding language strengths and weaknesses;
-            currently exploring <code>Go</code> and <code>Kotlin</code>.
+            currently exploring <code>Go</code>, <code>Kotlin</code>, and <code>Zig</code>.
             <br />
             <br />
             🥋 Also 4th Dan Taekwondo & MMA coach at SX MMA.
@@ -105,6 +105,7 @@ function App() {
                 <img src="https://img.shields.io/badge/Rust-F74C00?style=flat&logo=rust&logoColor=white" alt="Rust"/>
                 <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white"
                      alt="TypeScript"/>
+                <img src="https://img.shields.io/badge/Zig-F7A41D?style=flat&logo=zig&logoColor=white" alt="Zig"/>
             </div>
             <div className="badge-row">
                 <img src="https://img.shields.io/badge/Apache%20Airflow-ffffff?style=flat&logo=apacheairflow&logoColor=black"
