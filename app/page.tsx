@@ -191,7 +191,7 @@ export default function Home() {
           <Image
             src="https://a11ybadges.com/badge?logo=microsoftazure"
             height={20}
-            width={150}
+            width={170}
             alt="Azure"
             unoptimized
           />
