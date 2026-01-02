@@ -1,5 +1,6 @@
+"use client";
+
 import React, { useEffect, useRef, useCallback, useMemo } from "react";
-import "./ProfileCard.css";
 
 interface ProfileCardProps {
   avatarUrl: string;
@@ -60,10 +61,6 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   innerGradient,
   showBehindGradient = true,
   className = "",
-//   enableTilt = (() => {
-//     if (typeof window === "undefined") return false;
-//     return !('ontouchstart' in window || navigator.maxTouchPoints > 0);
-//     })(),
   enableTilt = true,
   miniAvatarUrl,
   name = "Javi A. Torres",
@@ -305,25 +302,25 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
                     <div className="pc-status">{status}</div>
                   </div>
                 </div>
-                    {contactLinks?.length ? (
-                    <div className="pc-contact-links">
-                        {contactLinks.map((link, i) => (
-                        <a
-                            key={i}
-                            href={link.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="pc-contact-btn-icon"
-                        >
-                            <span>{link.icon}</span>
-                        </a>
-                        ))}
-                    </div>
-                    ) : (
-                    <button className="pc-contact-btn" onClick={handleContactClick}>
-                        {contactText}
-                    </button>
-                    )}
+                {contactLinks?.length ? (
+                  <div className="pc-contact-links">
+                    {contactLinks.map((link, i) => (
+                      <a
+                        key={i}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="pc-contact-btn-icon"
+                      >
+                        <span>{link.icon}</span>
+                      </a>
+                    ))}
+                  </div>
+                ) : (
+                  <button className="pc-contact-btn" onClick={handleContactClick}>
+                    {contactText}
+                  </button>
+                )}
               </div>
             )}
           </div>
