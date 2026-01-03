@@ -38,7 +38,6 @@ export default function Home() {
             avatarUrl="/kris-taller.png"
             miniAvatarUrl="/kris.jpg"
             showUserInfo={true}
-            enableTilt={true}
             onContactClick={() => console.log("Contact clicked")}
           />
         </div>
