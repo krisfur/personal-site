@@ -7,9 +7,9 @@ import Image from "next/image";
 export default function Home() {
   return (
     <main className="min-h-screen flex flex-col items-center justify-center px-6 bg-base text-text">
-      <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16 max-w-[96rem] w-full">
+      <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 max-w-[96rem] w-full lg:items-center">
         {/* Profile Card */}
-        <div className="flex-shrink-0">
+        <div className="flex-shrink-0 flex justify-center lg:justify-start w-full lg:w-auto h-fit">
           <ProfileCard
             name="Krzysztof Furman"
             title="Senior Data Engineer"
@@ -42,64 +42,57 @@ export default function Home() {
           />
         </div>
 
-        {/* Text Panel */}
-        <div className="p-8 bg-white/5 rounded-2xl shadow-2xl max-w-[640px] w-full">
-          <h1 className="text-4xl font-bold mb-4">Hi, I&apos;m Kris</h1>
-          <p className="text-lg leading-relaxed text-subtext">
-            👨‍💻 Senior Data Engineer at the ASA.
-            <br />
-            <br />
-            🎓 <code>PhD</code> in Particle Physics (QMUL).
-            <br />
-            <br />
-            💻 Experienced in <code>C++</code>, <code>Python</code>,{" "}
-            <code>Rust</code>, <code>SQL</code>, and <code>TypeScript</code> in
-            software development and data science environments.
-            <br />
-            <br />
-            ☁️ Proficient in cloud deployment (DevOps) and data infrastructure
-            (DataOps) on <code>Azure</code> and <code>AWS</code>, orchestration
-            through <code>Apache Airflow</code>, and data management with{" "}
-            <code>Snowflake</code>.
-            <br />
-            <br />
-            ⚙️ Passionate about understanding language strengths and weaknesses;
-            currently exploring <code>Go</code>, <code>Kotlin</code>, and{" "}
-            <code>Zig</code>.
-            <br />
-            <br />
-            🥋 Also 4th Dan Taekwondo & MMA coach at SX MMA.
-          </p>
-        </div>
+        {/* Right column: Text and Work Experience panels */}
+        <div className="flex flex-col gap-8 flex-1">
+          {/* Text Panel */}
+          <div className="p-8 bg-white/5 rounded-2xl shadow-2xl w-full">
+            <h1 className="text-4xl font-bold mb-4">Hi, I&apos;m Kris</h1>
+            <p className="text-lg leading-relaxed text-subtext">
+              👨‍💻 Senior Data Engineer at the ASA.
+              <br />
+              <br />
+              🎓 <code>PhD</code> in Particle Physics (QMUL).
+              <br />
+              <br />
+              💻 Experienced in <code>C++</code>, <code>Python</code>,{" "}
+              <code>Rust</code>, <code>SQL</code>, and <code>TypeScript</code>{" "}
+              in software development and data science environments.
+              <br />
+              <br />
+              ☁️ Proficient in cloud deployment (DevOps) and data infrastructure
+              (DataOps) on <code>Azure</code> and <code>AWS</code>,
+              orchestration through <code>Apache Airflow</code>, and data
+              management with <code>Snowflake</code>.
+              <br />
+              <br />
+              ⚙️ Passionate about understanding language strengths and
+              weaknesses; currently exploring <code>Go</code>,{" "}
+              <code>Kotlin</code>, and <code>Zig</code>.
+              <br />
+              <br />
+              🥋 Also 4th Dan Taekwondo & Blue Belt BJJ.
+            </p>
+          </div>
 
-        {/* Work Experience Panel */}
-        <div className="p-8 bg-white/5 rounded-2xl shadow-2xl max-w-[640px] w-full">
-          <h1 className="text-4xl font-bold mb-4">Work Experience</h1>
-          <p className="text-lg leading-relaxed text-subtext">
-            <b>Senior Data Engineer</b> @ Advertising Standards Authority
-            <br />
-            <i>2023 - Present</i>
-            <br />
-            <br />
-            <b>Doctoral Researcher</b> @ Queen Mary University of London
-            <br />
-            <i>2020 - 2023</i>
-            <br />
-            <br />
-            <b>Senior Data Engineer</b> @ Rewire Online
-            <br />
-            <i>2021 - 2022</i>
-            <br />
-            <br />
-            <b>Data Analyst</b> @ The Alan Turing Institute
-            <br />
-            <i>2020 - 2020</i>
-            <br />
-            <br />
-            <b>Data Engineer</b> @ Human Digital
-            <br />
-            <i>2020 - 2020</i>
-          </p>
+          {/* Work Experience Panel */}
+          <div className="p-8 bg-white/5 rounded-2xl shadow-2xl w-full">
+            <h1 className="text-4xl font-bold mb-4">Work Experience</h1>
+            <p className="text-lg leading-relaxed text-subtext">
+              <b>Senior Data Engineer</b> @ Advertising Standards Authority
+              <br />
+              <i>2023 - Present</i>
+              <br />
+              <br />
+              <b>Doctoral Researcher</b> @ Queen Mary University of London
+              <br />
+              <i>2020 - 2023</i>
+              <br />
+              <br />
+              <b>Senior Data Engineer</b> @ Rewire Online
+              <br />
+              <i>2021 - 2022</i>
+            </p>
+          </div>
         </div>
       </div>
 
