@@ -10,7 +10,6 @@ interface ProfileCardProps {
   innerGradient?: string;
   showBehindGradient?: boolean;
   className?: string;
-  enableTilt?: boolean;
   miniAvatarUrl?: string;
   name?: string;
   title?: string;
@@ -46,7 +45,7 @@ const adjust = (
   fromMin: number,
   fromMax: number,
   toMin: number,
-  toMax: number
+  toMax: number,
 ): number =>
   round(toMin + ((toMax - toMin) * (value - fromMin)) / (fromMax - fromMin));
 
@@ -61,7 +60,6 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   innerGradient,
   showBehindGradient = true,
   className = "",
-  enableTilt = true,
   miniAvatarUrl,
   name = "Javi A. Torres",
   title = "Software Engineer",
@@ -76,15 +74,13 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   const cardRef = useRef<HTMLDivElement>(null);
 
   const animationHandlers = useMemo(() => {
-    if (!enableTilt) return null;
-
     let rafId: number | null = null;
 
     const updateCardTransform = (
       offsetX: number,
       offsetY: number,
       card: HTMLElement,
-      wrap: HTMLElement
+      wrap: HTMLElement,
     ) => {
       const width = card.clientWidth;
       const height = card.clientHeight;
@@ -103,8 +99,6 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
         "--pointer-from-center": `${clamp(Math.hypot(percentY - 50, percentX - 50) / 50, 0, 1)}`,
         "--pointer-from-top": `${percentY / 100}`,
         "--pointer-from-left": `${percentX / 100}`,
-        "--rotate-x": `${round(-(centerX / 5))}deg`,
-        "--rotate-y": `${round(centerY / 4)}deg`,
       };
 
       Object.entries(properties).forEach(([property, value]) => {
@@ -117,7 +111,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
       startX: number,
       startY: number,
       card: HTMLElement,
-      wrap: HTMLElement
+      wrap: HTMLElement,
     ) => {
       const startTime = performance.now();
       const targetX = wrap.clientWidth / 2;
@@ -151,7 +145,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
         }
       },
     };
-  }, [enableTilt]);
+  }, []);
 
   const handlePointerMove = useCallback(
     (event: PointerEvent) => {
@@ -165,10 +159,10 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
         event.clientX - rect.left,
         event.clientY - rect.top,
         card,
-        wrap
+        wrap,
       );
     },
-    [animationHandlers]
+    [animationHandlers],
   );
 
   const handlePointerEnter = useCallback(() => {
@@ -194,16 +188,16 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
         event.offsetX,
         event.offsetY,
         card,
-        wrap
+        wrap,
       );
       wrap.classList.remove("active");
       card.classList.remove("active");
     },
-    [animationHandlers]
+    [animationHandlers],
   );
 
   useEffect(() => {
-    if (!enableTilt || !animationHandlers) return;
+    if (!animationHandlers) return;
 
     const card = cardRef.current;
     const wrap = wrapRef.current;
@@ -227,7 +221,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
       initialX,
       initialY,
       card,
-      wrap
+      wrap,
     );
 
     return () => {
@@ -237,7 +231,6 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
       animationHandlers.cancelAnimation();
     };
   }, [
-    enableTilt,
     animationHandlers,
     handlePointerMove,
     handlePointerEnter,
@@ -254,7 +247,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
           : "none",
         "--inner-gradient": innerGradient ?? DEFAULT_INNER_GRADIENT,
       }) as React.CSSProperties,
-    [iconUrl, grainUrl, showBehindGradient, behindGradient, innerGradient]
+    [iconUrl, grainUrl, showBehindGradient, behindGradient, innerGradient],
   );
 
   const handleContactClick = useCallback(() => {
@@ -317,7 +310,10 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
                     ))}
                   </div>
                 ) : (
-                  <button className="pc-contact-btn" onClick={handleContactClick}>
+                  <button
+                    className="pc-contact-btn"
+                    onClick={handleContactClick}
+                  >
                     {contactText}
                   </button>
                 )}
