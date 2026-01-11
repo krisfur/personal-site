@@ -66,8 +66,8 @@ export default function Home() {
               <br />
               <br />
               ⚙️ Passionate about understanding language strengths and
-              weaknesses; currently exploring <code>Go</code>,{" "}
-              <code>Kotlin</code>, and <code>Zig</code>.
+              weaknesses; currently exploring <code>Go</code> and{" "}
+              <code>Zig</code>.
               <br />
               <br />
               🥋 Also 4th Dan Taekwondo & Blue Belt BJJ.
@@ -110,13 +110,6 @@ export default function Home() {
             src="https://img.shields.io/badge/Go-00ADD8?style=flat&logo=go&logoColor=white"
             alt="Go"
             width={60}
-            height={20}
-            unoptimized
-          />
-          <Image
-            src="https://img.shields.io/badge/Kotlin-7F52FF?style=flat&logo=kotlin&logoColor=white"
-            alt="Kotlin"
-            width={76}
             height={20}
             unoptimized
           />
