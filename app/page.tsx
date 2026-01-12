@@ -66,8 +66,8 @@ export default function Home() {
               <br />
               <br />
               ⚙️ Passionate about understanding language strengths and
-              weaknesses; currently exploring <code>Go</code> and{" "}
-              <code>Zig</code>.
+              weaknesses; currently exploring <code>C3</code>, <code>Go</code>,
+              and <code>Zig</code>.
               <br />
               <br />
               🥋 Also 4th Dan Taekwondo & Blue Belt BJJ.
@@ -100,6 +100,13 @@ export default function Home() {
       <footer className="flex flex-col gap-3 items-center mt-8 pt-8 px-4 border-t border-mauve/20 w-full">
         <div className="flex flex-wrap gap-2 justify-center">
           <Image
+            src="https://img.shields.io/badge/C3-2c52eb?style=flat&logo=c&logoColor=white"
+            alt="C3"
+            width={60}
+            height={20}
+            unoptimized
+          />
+          <Image
             src="https://img.shields.io/badge/C++-00599C?style=flat&logo=cplusplus&logoColor=white"
             alt="C++"
             width={68}
@@ -123,7 +130,7 @@ export default function Home() {
           <Image
             src="https://img.shields.io/badge/Rust-F74C00?style=flat&logo=rust&logoColor=white"
             alt="Rust"
-            width={68}
+            width={75}
             height={20}
             unoptimized
           />
