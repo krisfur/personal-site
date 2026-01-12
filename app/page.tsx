@@ -66,8 +66,8 @@ export default function Home() {
               <br />
               <br />
               ⚙️ Passionate about understanding language strengths and
-              weaknesses; currently exploring <code>C3</code>, <code>Go</code>,
-              and <code>Zig</code>.
+              weaknesses; currently exploring <code>C3</code>, <code>Go</code>,{" "}
+              <code>Odin</code>, and <code>Zig</code>.
               <br />
               <br />
               🥋 Also 4th Dan Taekwondo & Blue Belt BJJ.
@@ -121,9 +121,16 @@ export default function Home() {
             unoptimized
           />
           <Image
+            src="https://img.shields.io/badge/Odin-1d568d?style=flat&logo=odin&logoColor=white"
+            alt="Odin"
+            width={80}
+            height={20}
+            unoptimized
+          />
+          <Image
             src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white"
             alt="Python"
-            width={80}
+            width={90}
             height={20}
             unoptimized
           />
@@ -137,7 +144,7 @@ export default function Home() {
           <Image
             src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white"
             alt="TypeScript"
-            width={106}
+            width={120}
             height={20}
             unoptimized
           />
