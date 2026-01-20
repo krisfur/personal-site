@@ -54,9 +54,10 @@ export default function Home() {
               🎓 <code>PhD</code> in Particle Physics (QMUL).
               <br />
               <br />
-              💻 Experienced in <code>C++</code>, <code>Python</code>,{" "}
-              <code>Rust</code>, <code>SQL</code>, and <code>TypeScript</code>{" "}
-              in software development and data science environments.
+              💻 Experienced in <code>C++</code>, <code>Go</code>,{" "}
+              <code>Python</code>, <code>Rust</code>, <code>SQL</code>, and{" "}
+              <code>TypeScript</code> in software development and data science
+              environments.
               <br />
               <br />
               ☁️ Proficient in cloud deployment (DevOps) and data infrastructure
@@ -66,8 +67,8 @@ export default function Home() {
               <br />
               <br />
               ⚙️ Passionate about understanding language strengths and
-              weaknesses; currently exploring <code>Go</code>, <code>Odin</code>
-              , and <code>Zig</code>.
+              weaknesses; currently exploring <code>Odin</code> and{" "}
+              <code>Zig</code>.
               <br />
               <br />
               🥋 Also 4th Dan Taekwondo & Blue Belt BJJ.
