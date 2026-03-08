@@ -67,7 +67,7 @@ export default function Home() {
 
                             <p>
                                 ⚙️ Passionate about understanding language strengths and weaknesses;
-                                currently exploring <code>Elixir</code>, <code>Odin</code>, and <code>Zig</code>.
+                                currently exploring <code>Odin</code> and <code>Zig</code>.
                             </p>
 
                             <p>🥋 Also 4th Dan Taekwondo & Blue Belt BJJ.</p>
@@ -107,23 +107,9 @@ export default function Home() {
                         unoptimized
                     />
                     <Image
-                        src="https://img.shields.io/badge/Elixir-4B275F?style=flat&logo=elixir&logoColor=white"
-                        alt="Elixir"
-                        width={74}
-                        height={20}
-                        unoptimized
-                    />
-                    <Image
                         src="https://img.shields.io/badge/Go-00ADD8?style=flat&logo=go&logoColor=white"
                         alt="Go"
                         width={60}
-                        height={20}
-                        unoptimized
-                    />
-                    <Image
-                        src="https://img.shields.io/badge/Odin-1d568d?style=flat&logo=odin&logoColor=white"
-                        alt="Odin"
-                        width={80}
                         height={20}
                         unoptimized
                     />
@@ -145,6 +131,15 @@ export default function Home() {
                         src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white"
                         alt="TypeScript"
                         width={120}
+                        height={20}
+                        unoptimized
+                    />
+                </div>
+                <div className="flex flex-wrap gap-2 justify-center">
+                    <Image
+                        src="https://img.shields.io/badge/Odin-1d568d?style=flat&logo=odin&logoColor=white"
+                        alt="Odin"
+                        width={80}
                         height={20}
                         unoptimized
                     />
