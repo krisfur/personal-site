@@ -6,7 +6,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Krzysztof Furman - Senior Data Engineer",
-  description: "Senior Data Engineer with expertise in C++, Python, Rust, SQL, and TypeScript. PhD in Particle Physics.",
+  description:
+    "Senior Data Engineer with expertise in C++, Python, Rust, SQL, and TypeScript. PhD in Particle Physics.",
 };
 
 export default function RootLayout({
