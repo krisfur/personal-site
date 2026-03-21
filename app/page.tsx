@@ -2,7 +2,65 @@
 
 import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 import ProfileCard from "@/components/ProfileCard";
-import Image from "next/image";
+
+const badgeRows = [
+  [
+    {
+      src: "https://img.shields.io/badge/C++-00599C?style=flat&logo=cplusplus&logoColor=white",
+      alt: "C++",
+    },
+    {
+      src: "https://img.shields.io/badge/Go-00ADD8?style=flat&logo=go&logoColor=white",
+      alt: "Go",
+    },
+    {
+      src: "https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white",
+      alt: "Python",
+    },
+    {
+      src: "https://img.shields.io/badge/Rust-F74C00?style=flat&logo=rust&logoColor=white",
+      alt: "Rust",
+    },
+    {
+      src: "https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white",
+      alt: "TypeScript",
+    },
+  ],
+  [
+    {
+      src: "https://img.shields.io/badge/Odin-1d568d?style=flat&logo=odin&logoColor=white",
+      alt: "Odin",
+    },
+    {
+      src: "https://img.shields.io/badge/Zig-F7A41D?style=flat&logo=zig&logoColor=white",
+      alt: "Zig",
+    },
+  ],
+  [
+    {
+      src: "https://img.shields.io/badge/Apache%20Airflow-ffffff?style=flat&logo=apacheairflow&logoColor=black",
+      alt: "Apache Airflow",
+    },
+    {
+      src: "https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white",
+      alt: "PostgreSQL",
+    },
+    {
+      src: "https://img.shields.io/badge/Snowflake-29B5E8?style=flat&logo=snowflake&logoColor=white",
+      alt: "Snowflake",
+    },
+  ],
+  [
+    {
+      src: "https://a11ybadges.com/badge?logo=amazonaws",
+      alt: "AWS",
+    },
+    {
+      src: "https://a11ybadges.com/badge?logo=microsoftazure",
+      alt: "Azure",
+    },
+  ],
+] as const;
 
 export default function Home() {
   return (
@@ -104,98 +162,21 @@ export default function Home() {
 
       {/* Footer with badges */}
       <footer className="flex flex-col gap-3 items-center mt-8 pt-8 px-4 border-t border-mauve/20 w-full">
-        <div className="flex flex-wrap gap-2 justify-center">
-          <Image
-            src="https://img.shields.io/badge/C++-00599C?style=flat&logo=cplusplus&logoColor=white"
-            alt="C++"
-            width={74}
-            height={20}
-            unoptimized
-          />
-          <Image
-            src="https://img.shields.io/badge/Go-00ADD8?style=flat&logo=go&logoColor=white"
-            alt="Go"
-            width={60}
-            height={20}
-            unoptimized
-          />
-          <Image
-            src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white"
-            alt="Python"
-            width={90}
-            height={20}
-            unoptimized
-          />
-          <Image
-            src="https://img.shields.io/badge/Rust-F74C00?style=flat&logo=rust&logoColor=white"
-            alt="Rust"
-            width={75}
-            height={20}
-            unoptimized
-          />
-          <Image
-            src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white"
-            alt="TypeScript"
-            width={120}
-            height={20}
-            unoptimized
-          />
-        </div>
-        <div className="flex flex-wrap gap-2 justify-center">
-          <Image
-            src="https://img.shields.io/badge/Odin-1d568d?style=flat&logo=odin&logoColor=white"
-            alt="Odin"
-            width={80}
-            height={20}
-            unoptimized
-          />
-          <Image
-            src="https://img.shields.io/badge/Zig-F7A41D?style=flat&logo=zig&logoColor=white"
-            alt="Zig"
-            width={56}
-            height={20}
-            unoptimized
-          />
-        </div>
-        <div className="flex flex-wrap gap-2 justify-center">
-          <Image
-            src="https://img.shields.io/badge/Apache%20Airflow-ffffff?style=flat&logo=apacheairflow&logoColor=black"
-            alt="Apache Airflow"
-            width={134}
-            height={20}
-            unoptimized
-          />
-          <Image
-            src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white"
-            alt="PostgreSQL"
-            width={102}
-            height={20}
-            unoptimized
-          />
-          <Image
-            src="https://img.shields.io/badge/Snowflake-29B5E8?style=flat&logo=snowflake&logoColor=white"
-            alt="Snowflake"
-            width={96}
-            height={20}
-            unoptimized
-          />
-        </div>
-        <div className="flex flex-wrap gap-2 justify-center">
-          <Image
-            src="https://a11ybadges.com/badge?logo=amazonaws"
-            height={20}
-            width={150}
-            alt="AWS"
-            unoptimized
-          />
-          <Image
-            src="https://a11ybadges.com/badge?logo=microsoftazure"
-            height={20}
-            width={170}
-            alt="Azure"
-            unoptimized
-          />
-        </div>
+        {badgeRows.map((row, rowIndex) => (
+          <div key={rowIndex} className="flex flex-wrap gap-2 justify-center">
+            {row.map((badge) => (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                key={badge.alt}
+                src={badge.src}
+                alt={badge.alt}
+                loading="lazy"
+                decoding="async"
+                style={{ height: "25px", width: "auto" }}
+              />
+            ))}
+          </div>
+        ))}
       </footer>
     </main>
   );
