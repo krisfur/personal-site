@@ -1,119 +1,93 @@
-# Personal Portfolio – Next.js + React + Tailwind CSS
+# Personal site
 
-This is a modern personal site built with:
+Personal portfolio site, built with Next.js, React, TypeScript, Tailwind CSS, and Bun.
 
-* ⚛️ **React 19**
-* ⚡ **Next.js 15** (App Router)
-* 🎨 **Tailwind CSS**
-* 🚀 **Bun** (JavaScript runtime & package manager)
-* ✨ **Custom holographic Profile Card UI**
+The app is currently a single-page site centered around a custom interactive profile card, a short bio, work history, and technology badges.
 
-## ✨ Getting Started
+## Stack
 
-1. **Install dependencies**
+- Next.js 16
+- React 19
+- TypeScript
+- Tailwind CSS
+- Bun
 
-   ```bash
-   bun install
-   ```
+## Local development
 
-2. **Start development server**
-
-   ```bash
-   bun run dev
-   ```
-
-   Open [http://localhost:3000](http://localhost:3000) to view the site.
-
-3. **Build for production**
-
-   ```bash
-   bun run build
-   ```
-
-4. **Start production server**
-
-   ```bash
-   bun run start
-   ```
-
-## ✨ Features
-
-* ⚡ Server-side rendering with Next.js 15 App Router
-* 🎨 Tailwind CSS for utility-first styling
-* 📱 Fully responsive design
-* ✨ Animated profile card with 3D tilt effects and holographic gradients
-* 🔗 Social media integration (LinkedIn, GitHub, Instagram)
-* 🎯 TypeScript for type safety
-* 🚀 Optimized for performance with Next.js Image component
-* 📊 Technology badge showcase
-
-## 🧱 Credit
-
-Profile card design inspired by [ReactBits Profile Card Component](https://www.reactbits.dev/components/profile-card)
-
-## 📁 Structure
-
-```
-app/
-├── layout.tsx            # Root layout with metadata
-├── page.tsx              # Home page
-└── globals.css           # Global styles & ProfileCard CSS
-
-components/
-└── ProfileCard.tsx       # Custom 3D card component
-
-public/
-├── kris-taller.png       # Main avatar image
-└── kris.jpg              # Mini avatar image
-```
-
-## 🛠️ Customization
-
-### Update Personal Information
-
-Edit `app/page.tsx` to customize:
-
-* Profile card props (name, title, handle, status)
-* Social media links
-* Work experience
-* Technology badges
-
-### Modify ProfileCard Appearance
-
-Edit `components/ProfileCard.tsx` props:
-
-* `avatarUrl` - Main profile image
-* `miniAvatarUrl` - Small avatar in info bar
-* `behindGradient` - Animated background gradient
-* `innerGradient` - Inner card gradient
-* `enableTilt` - Enable/disable 3D tilt effect
-* `contactLinks` - Social media links with icons
-
-### Styling
-
-The project uses Tailwind CSS for most styling. Custom ProfileCard styles are in `app/globals.css` to preserve the complex holographic effects and animations.
-
-## 🎨 Tech Stack Migration
-
-This project was migrated from:
-- **Vite** → **Next.js 15** (App Router)
-- **CSS Modules** → **Tailwind CSS** (with custom CSS for ProfileCard)
-- **npm** → **Bun**
-
-## 📦 Deployment
-
-Easily deploy to Vercel:
+Install dependencies:
 
 ```bash
-# Install Vercel CLI
-bun install -g vercel
-
-# Deploy
-vercel
+bun install
 ```
 
-Or push to GitHub and connect to Vercel for automatic deployments.
+Start the development server:
 
----
+```bash
+bun run dev
+```
 
-Built by [Krzysztof Furman](https://github.com/krisfur)
+Open `http://localhost:3000`.
+
+Other useful commands:
+
+```bash
+bun run lint
+bun run build
+bun run start
+```
+
+## Project structure
+
+```text
+app/
+  layout.tsx          Root layout and page metadata
+  page.tsx            Main page content
+  globals.css         Global styles and profile card effects
+
+components/
+  ProfileCard.tsx     Interactive profile card component
+
+public/
+  kris-taller.png     Main card image
+  kris.jpg            Mini avatar image
+```
+
+## What to edit
+
+Most content updates happen in `app/page.tsx`:
+
+- intro copy
+- work experience
+- social links
+- technology badge rows
+- profile card props such as name, title, handle, and status
+
+Profile card behavior and structure live in `components/ProfileCard.tsx`.
+
+Profile card visual styling and animation effects live in `app/globals.css`.
+
+Images are stored in `public/`.
+
+## Notes
+
+- The card UI is more custom than the rest of the page and uses regular CSS in `app/globals.css` alongside Tailwind utilities.
+- External badge images are loaded directly from badge providers in `app/page.tsx`.
+- Deployment is set up for Vercel with Bun commands in `vercel.json`.
+
+## Deployment
+
+The site is deployed on Vercel.
+
+This repo includes `vercel.json` with:
+
+- `bun install` for install
+- `bun run build` for build
+- `bun run dev` for local Vercel dev
+
+Those settings are picked up automatically.
+
+## Credit
+
+The profile card design is inspired by the React Bits profile card component:
+
+- https://www.reactbits.dev/components/profile-card
