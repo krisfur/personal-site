@@ -73,10 +73,9 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
 }) => {
   const wrapRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
+  const rafIdRef = useRef<number | null>(null);
 
   const animationHandlers = useMemo(() => {
-    let rafId: number | null = null;
-
     const updateCardTransform = (
       offsetX: number,
       offsetY: number,
@@ -126,24 +125,24 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
         updateCardTransform(currentX, currentY, card, wrap);
 
         if (progress < 1) {
-          rafId = requestAnimationFrame(animationLoop);
+          rafIdRef.current = requestAnimationFrame(animationLoop);
         }
       };
 
-      rafId = requestAnimationFrame(animationLoop);
+      rafIdRef.current = requestAnimationFrame(animationLoop);
     };
 
     return {
       updateCardTransform,
       createSmoothAnimation,
       cancelAnimation: () => {
-        if (rafId) {
-          cancelAnimationFrame(rafId);
-          rafId = null;
+        if (rafIdRef.current) {
+          cancelAnimationFrame(rafIdRef.current);
+          rafIdRef.current = null;
         }
       },
     };
-  }, []);
+  }, [rafIdRef]);
 
   const handlePointerMove = useCallback(
     (event: PointerEvent) => {
