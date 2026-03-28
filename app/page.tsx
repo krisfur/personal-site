@@ -32,6 +32,10 @@ const badgeRows = [
       alt: "Odin",
     },
     {
+      src: "https://img.shields.io/badge/Swift-F05138?style=flat&logo=swift&logoColor=white",
+      alt: "Swift",
+    },
+    {
       src: "https://img.shields.io/badge/Zig-F7A41D?style=flat&logo=zig&logoColor=white",
       alt: "Zig",
     },
@@ -130,8 +134,8 @@ export default function Home() {
 
               <p>
                 ⚙️ Passionate about understanding language strengths and
-                weaknesses; currently exploring <code>Odin</code> and{" "}
-                <code>Zig</code>.
+                weaknesses; currently exploring <code>Odin</code>,{" "}
+                <code>Swift</code>, and <code>Zig</code>.
               </p>
 
               <p>🥋 Also 4th Dan Taekwondo & Blue Belt BJJ.</p>
