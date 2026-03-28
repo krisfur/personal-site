@@ -26,5 +26,9 @@
     "postcss": "^8.5.8",
     "tailwindcss": "^3.4.19",
     "typescript": "~5.9.3"
+  },
+  "overrides": {
+    "flatted": "^3.4.0",
+    "picomatch": "2.3.2"
   }
 }
