@@ -1,187 +1,349 @@
-"use client";
-
-import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaInstagram, FaLinkedin, FaMedium } from "react-icons/fa";
 import ProfileCard from "@/components/ProfileCard";
+import { siteUrl } from "./site-config";
 
-const badgeRows = [
-  [
-    {
-      src: "https://img.shields.io/badge/C++-00599C?style=flat&logo=cplusplus&logoColor=white",
-      alt: "C++",
-    },
-    {
-      src: "https://img.shields.io/badge/Go-00ADD8?style=flat&logo=go&logoColor=white",
-      alt: "Go",
-    },
-    {
-      src: "https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white",
-      alt: "Python",
-    },
-    {
-      src: "https://img.shields.io/badge/Rust-F74C00?style=flat&logo=rust&logoColor=white",
-      alt: "Rust",
-    },
-    {
-      src: "https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white",
-      alt: "TypeScript",
-    },
-  ],
-  [
-    {
-      src: "https://img.shields.io/badge/Odin-1d568d?style=flat&logo=odin&logoColor=white",
-      alt: "Odin",
-    },
-    {
-      src: "https://img.shields.io/badge/Swift-F05138?style=flat&logo=swift&logoColor=white",
-      alt: "Swift",
-    },
-    {
-      src: "https://img.shields.io/badge/Zig-F7A41D?style=flat&logo=zig&logoColor=white",
-      alt: "Zig",
-    },
-  ],
-  [
-    {
-      src: "https://img.shields.io/badge/Apache%20Airflow-ffffff?style=flat&logo=apacheairflow&logoColor=black",
-      alt: "Apache Airflow",
-    },
-    {
-      src: "https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white",
-      alt: "PostgreSQL",
-    },
-    {
-      src: "https://img.shields.io/badge/Snowflake-29B5E8?style=flat&logo=snowflake&logoColor=white",
-      alt: "Snowflake",
-    },
-  ],
-  [
-    {
-      src: "https://a11ybadges.com/badge?logo=amazonaws",
-      alt: "AWS",
-    },
-    {
-      src: "https://a11ybadges.com/badge?logo=microsoftazure",
-      alt: "Azure",
-    },
-  ],
+const intro =
+  "Building data platforms, internal tools, and both user- and developer-facing systems.";
+
+const experience = [
+  {
+    title: "Senior Data Engineer",
+    company: "Advertising Standards Authority",
+    period: "May 2023 - Present",
+    details: [
+      "Led a team of data engineers across day-to-day delivery, code review, hiring, and mentoring.",
+      "Built high-volume ingestion pipelines for APIs and web scraping workflows across platforms including Meta, Google, and TikTok.",
+      "Overhauled a hybrid Azure and AWS data platform with Snowflake and Airflow, reducing cost per data item by 30% while supporting more than 100x data growth.",
+      "Built internal TypeScript and Python applications, including LLM-based agentic tools for enterprise knowledge retrieval.",
+    ],
+  },
+  {
+    title: "Doctoral Researcher",
+    company: "Queen Mary University of London",
+    period: "Sep 2020 - Apr 2023",
+    details: [
+      "Developed the near detector upstream DAQ for the DUNE experiment at Fermilab using C++, Python, ZeroMQ, and custom TCP socket and buffer handling.",
+      "Studied the impact of DUNE PRISM on statistical and systematic uncertainties using Tikhonov regularisation with SciPy and NumPy.",
+      "Demonstrated Statistical Data Analysis, Elemetnary Particle Physics, and Practical Machine Learning modules.",
+    ],
+  },
+  {
+    title: "Senior Data Engineer",
+    company: "Rewire Online",
+    period: "May 2021 - Dec 2022",
+    details: [
+      "Built Python data collection pipelines around Twitter and Reddit APIs, deployed on AWS EC2.",
+      "Handled data analysis, cleaning, storage, and automation testing with pandas, PostgreSQL, S3, Selenium, and custom tooling.",
+      "Integrated the Rewire API into a Python Discord bot that was distributed publicly.",
+    ],
+  },
 ] as const;
+
+type FeaturedProject = {
+  name: string;
+  description: string;
+  primaryUrl: string;
+  secondaryUrl?: string;
+  secondaryLabel?: string;
+  stack: readonly string[];
+};
+
+const featuredProjects: readonly FeaturedProject[] = [
+  {
+    name: "FEX",
+    description:
+      "Universal interactive system package search for the terminal, written in Rust and published on crates.io.",
+    primaryUrl: "https://github.com/krisfur/fex",
+    secondaryUrl: "https://crates.io/crates/fex",
+    secondaryLabel: "Crates.io",
+    stack: ["Rust", "CLI", "Terminal UX"],
+  },
+  {
+    name: "whisper-parallel-cpu",
+    description:
+      "A pybind11 wrapper around whisper.cpp for CPU-parallel transcription workloads in cloud environments.",
+    primaryUrl: "https://github.com/krisfur/whisper-parallel-cpu",
+    secondaryUrl: "https://pypi.org/project/whisper-parallel-cpu/",
+    secondaryLabel: "PyPI",
+    stack: ["Python", "C++", "FFMPEG"],
+  },
+] as const;
+
+const writing = {
+  title: "AI coding is underwhelming",
+  description:
+    "A short essay on where AI coding tools help, where they disappoint, and how that changes the way engineering work should be judged.",
+  url: "https://medium.com/@krisfur/ai-coding-is-underwhelming-002dc1a40d8d",
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Krzysztof Furman",
+  url: siteUrl,
+  jobTitle: "Senior Data Engineer",
+  description: intro,
+  sameAs: [
+    "https://github.com/krisfur",
+    "https://linkedin.com/in/k-furman",
+    "https://medium.com/@krisfur",
+  ],
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "Queen Mary University of London",
+  },
+  worksFor: {
+    "@type": "Organization",
+    name: "Advertising Standards Authority",
+  },
+  knowsAbout: [
+    "Data Engineering",
+    "Python",
+    "Go",
+    "Rust",
+    "TypeScript",
+    "SQL",
+    "Apache Airflow",
+    "Snowflake",
+    "AWS",
+    "Azure",
+    "Particle Physics",
+    "DUNE",
+  ],
+};
+
+function SectionHeading({ title }: { title: string }) {
+  return (
+    <h2 className="text-sm font-medium uppercase tracking-[0.24em] text-slate-400">
+      {title}
+    </h2>
+  );
+}
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center px-6 bg-base text-text">
-      <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 max-w-[96rem] w-full lg:items-center">
-        {/* Profile Card */}
-        <div className="flex-shrink-0 flex justify-center lg:justify-start w-full lg:w-auto h-fit">
-          <ProfileCard
-            name="Krzysztof Furman"
-            title="Senior Data Engineer"
-            handle="krisfur"
-            status="PhD"
-            contactText="Contact"
-            behindGradient="radial-gradient(farthest-side circle at var(--pointer-x) var(--pointer-y),hsla(280,100%,90%,var(--card-opacity)) 4%,hsla(280,50%,80%,calc(var(--card-opacity)*0.75)) 10%,hsla(280,25%,70%,calc(var(--card-opacity)*0.5)) 50%,hsla(280,0%,60%,0) 100%),radial-gradient(35% 52% at 55% 20%,#8a2be2c4 0%,#4b008200 100%),radial-gradient(100% 100% at 50% 50%,#9370dbff 1%,#4b008200 76%),conic-gradient(from 124deg at 50% 50%,#8a2be2ff 0%,#da70d6ff 40%,#da70d6ff 60%,#8a2be2ff 100%)"
-            innerGradient="linear-gradient(145deg,#4b00828c 0%,#9370db44 100%)"
-            contactLinks={[
-              {
-                label: "LinkedIn",
-                url: "https://linkedin.com/in/k-furman",
-                icon: <FaLinkedin />,
-              },
-              {
-                label: "GitHub",
-                url: "https://github.com/krisfur",
-                icon: <FaGithub />,
-              },
-              {
-                label: "Instagram",
-                url: "https://instagram.com/krisfur",
-                icon: <FaInstagram />,
-              },
-            ]}
-            avatarUrl="/kris-taller.png"
-            miniAvatarUrl="/kris.jpg"
-            showUserInfo={true}
-            onContactClick={() => console.log("Contact clicked")}
-          />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
+      <main className="mx-auto min-h-screen w-full max-w-7xl px-6 py-8 sm:px-8 sm:py-12 lg:px-12 lg:py-16">
+        <div className="grid gap-8 lg:grid-cols-[minmax(18rem,28rem)_minmax(0,1fr)] lg:gap-10">
+          <div className="lg:sticky lg:top-8 lg:self-start">
+            <ProfileCard
+              photoUrl="/kris-taller.png"
+              avatarUrl="/kris.jpg"
+              name="Krzysztof Furman, PhD"
+              title="Senior Data Engineer"
+              summary={intro}
+              note="Also into programming languages, terminal tools, Taekwondo (4th Dan), and BJJ (blue belt)."
+              contactLinks={[
+                {
+                  label: "GitHub",
+                  url: "https://github.com/krisfur",
+                  icon: <FaGithub />,
+                },
+                {
+                  label: "LinkedIn",
+                  url: "https://linkedin.com/in/k-furman",
+                  icon: <FaLinkedin />,
+                },
+                {
+                  label: "Instagram",
+                  url: "https://instagram.com/krisfur",
+                  icon: <FaInstagram />,
+                },
+                {
+                  label: "Medium",
+                  url: "https://medium.com/@krisfur",
+                  icon: <FaMedium />,
+                },
+              ]}
+            />
+          </div>
+
+          <div className="space-y-5">
+            <section className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-7 shadow-[0_24px_70px_rgba(0,0,0,0.25)] sm:p-9">
+              <h1 className="max-w-4xl font-serif text-5xl leading-tight text-white sm:text-6xl sm:leading-tight">
+                Senior Data Engineer · London
+              </h1>
+              <div className="mt-6 max-w-3xl space-y-4 text-lg leading-8 text-slate-300">
+                <p>
+                  Experienced in academia, low-level software engineering, and
+                  data science environments.
+                </p>
+                <p>Proficient in DevOps and DataOps.</p>
+                <p>
+                  Passionate about understanding programming language strengths
+                  and weaknesses.
+                </p>
+              </div>
+              <div className="mt-8 space-y-3 text-base leading-7 text-slate-300">
+                <div className="space-y-2">
+                  <p className="text-sm font-medium uppercase tracking-[0.18em] text-slate-500">
+                    Programming languages
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {[
+                      "C++",
+                      "Go",
+                      "Python",
+                      "Rust",
+                      "SQL",
+                      "TypeScript",
+                    ].map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-full border border-white/10 bg-white/[0.045] px-3 py-1.5 text-sm text-slate-300"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <p className="text-sm font-medium uppercase tracking-[0.18em] text-slate-500">
+                    Platforms
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {["Airflow", "Snowflake", "AWS", "Azure"].map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-full border border-white/10 bg-white/[0.045] px-3 py-1.5 text-sm text-slate-300"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <p className="text-sm font-medium uppercase tracking-[0.18em] text-slate-500">
+                    Exploring
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {["Odin", "Swift", "Zig"].map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-full border border-white/10 bg-white/[0.045] px-3 py-1.5 text-sm text-slate-300"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-7 shadow-[0_24px_70px_rgba(0,0,0,0.25)] sm:p-9">
+              <SectionHeading title="Experience" />
+              <div className="mt-8 space-y-6">
+                {experience.map((role) => (
+                  <article
+                    key={`${role.title}-${role.company}`}
+                    className="rounded-2xl border border-white/10 bg-black/10 p-5"
+                  >
+                    <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                      <div>
+                        <h3 className="text-xl font-semibold text-white">
+                          {role.title}
+                        </h3>
+                        <p className="text-base text-slate-300">
+                          {role.company}
+                        </p>
+                      </div>
+                      <p className="text-sm uppercase tracking-[0.18em] text-slate-500">
+                        {role.period}
+                      </p>
+                    </div>
+                    <ul className="mt-4 space-y-2 text-base leading-7 text-slate-400">
+                      {role.details.slice(0, 3).map((detail) => (
+                        <li key={detail} className="flex gap-3">
+                          <span className="mt-3 h-1.5 w-1.5 rounded-full bg-slate-500" />
+                          <span>{detail}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </article>
+                ))}
+              </div>
+            </section>
+
+            <section className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-7 shadow-[0_24px_70px_rgba(0,0,0,0.25)] sm:p-9">
+              <SectionHeading title="Selected projects" />
+              <div className="mt-8 grid gap-4 lg:grid-cols-2">
+                {featuredProjects.map((project) => (
+                  <article
+                    key={project.name}
+                    className="flex h-full flex-col rounded-2xl border border-white/10 bg-black/10 p-5"
+                  >
+                    <div className="space-y-4">
+                      <div className="space-y-2">
+                        <h3 className="text-xl font-semibold text-white">
+                          {project.name}
+                        </h3>
+                        <p className="text-base leading-7 text-slate-400">
+                          {project.description}
+                        </p>
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {project.stack.map((item) => (
+                          <span
+                            key={item}
+                            className="rounded-full border border-white/10 bg-white/[0.045] px-3 py-1.5 text-xs uppercase tracking-[0.16em] text-slate-400"
+                          >
+                            {item}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="mt-6 flex gap-4 text-sm font-medium text-slate-200">
+                      <a
+                        href={project.primaryUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="link-underline"
+                      >
+                        GitHub
+                      </a>
+                      {project.secondaryUrl ? (
+                        <a
+                          href={project.secondaryUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="link-underline"
+                        >
+                          {project.secondaryLabel}
+                        </a>
+                      ) : null}
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </section>
+
+            <section className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-7 shadow-[0_24px_70px_rgba(0,0,0,0.25)] sm:p-9">
+              <SectionHeading title="Writing" />
+              <article className="mt-8 rounded-2xl border border-white/10 bg-black/10 p-5">
+                <h3 className="text-xl font-semibold text-white">
+                  {writing.title}
+                </h3>
+                <p className="mt-3 max-w-3xl text-base leading-7 text-slate-400">
+                  {writing.description}
+                </p>
+                <a
+                  href={writing.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="link-underline mt-5 inline-flex text-sm font-medium text-slate-200"
+                >
+                  Read on Medium
+                </a>
+              </article>
+            </section>
+          </div>
         </div>
-
-        {/* Right column: Text and Work Experience panels */}
-        <div className="flex flex-col gap-8 flex-1">
-          {/* Text Panel */}
-          <div className="p-8 bg-white/5 rounded-2xl shadow-2xl w-full">
-            <h1 className="text-4xl font-bold mb-4">Hi, I&apos;m Kris</h1>
-
-            <div className="text-lg leading-relaxed text-subtext space-y-3">
-              <p>👨‍💻 Senior Data Engineer at the ASA.</p>
-
-              <p>
-                🎓 <code>PhD</code> in Particle Physics (QMUL).
-              </p>
-
-              <p>
-                💻 Experienced in <code>C++</code>, <code>Go</code>,{" "}
-                <code>Python</code>,<code>Rust</code>, <code>SQL</code>, and{" "}
-                <code>TypeScript</code> in software development and data science
-                environments.
-              </p>
-
-              <p>
-                ☁️ Proficient in cloud deployment (DevOps) and data
-                infrastructure (DataOps) on <code>Azure</code> and{" "}
-                <code>AWS</code>, orchestration through
-                <code>Apache Airflow</code>, and data management with{" "}
-                <code>Snowflake</code>.
-              </p>
-
-              <p>
-                ⚙️ Passionate about understanding language strengths and
-                weaknesses; currently exploring <code>Odin</code>,{" "}
-                <code>Swift</code>, and <code>Zig</code>.
-              </p>
-
-              <p>🥋 Also 4th Dan Taekwondo & Blue Belt BJJ.</p>
-            </div>
-          </div>
-
-          {/* Work Experience Panel */}
-          <div className="p-8 bg-white/5 rounded-2xl shadow-2xl w-full">
-            <h1 className="text-4xl font-bold mb-4">Work Experience</h1>
-            <p className="text-lg leading-relaxed text-subtext">
-              <b>Senior Data Engineer</b> @ Advertising Standards Authority
-              <br />
-              <i>2023 - Present</i>
-              <br />
-              <br />
-              <b>Doctoral Researcher</b> @ Queen Mary University of London
-              <br />
-              <i>2020 - 2023</i>
-              <br />
-              <br />
-              <b>Senior Data Engineer</b> @ Rewire Online
-              <br />
-              <i>2021 - 2022</i>
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Footer with badges */}
-      <footer className="flex flex-col gap-3 items-center mt-8 pt-8 px-4 border-t border-mauve/20 w-full">
-        {badgeRows.map((row, rowIndex) => (
-          <div key={rowIndex} className="flex flex-wrap gap-2 justify-center">
-            {row.map((badge) => (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                key={badge.alt}
-                src={badge.src}
-                alt={badge.alt}
-                loading="lazy"
-                decoding="async"
-                style={{ height: "25px", width: "auto" }}
-              />
-            ))}
-          </div>
-        ))}
-      </footer>
-    </main>
+      </main>
+    </>
   );
 }

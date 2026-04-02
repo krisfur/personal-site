@@ -2,7 +2,7 @@
 
 Personal portfolio site, built with Next.js, React, TypeScript, Tailwind CSS, and Bun.
 
-The app is currently a single-page site centered around a custom interactive profile card, a short bio, work history, and technology badges.
+The app is currently a single-page site with an editorial two-column layout: a profile panel, a concise introduction, experience, skills, selected projects, and writing links.
 
 ## Stack
 
@@ -41,11 +41,14 @@ bun run start
 ```text
 app/
   layout.tsx          Root layout and page metadata
-  page.tsx            Main page content
-  globals.css         Global styles and profile card effects
+  page.tsx            Main page content and structured data
+  globals.css         Global styles
+  robots.ts           Search crawler rules
+  sitemap.ts          Sitemap generation
+  site-config.ts      Site URL configuration
 
 components/
-  ProfileCard.tsx     Interactive profile card component
+  ProfileCard.tsx     Profile panel component
 
 public/
   kris-taller.png     Main card image
@@ -58,20 +61,21 @@ Most content updates happen in `app/page.tsx`:
 
 - intro copy
 - work experience
-- social links
-- technology badge rows
-- profile card props such as name, title, handle, and status
+- skills
+- selected projects
+- writing links
+- profile panel props such as name, title, summary, and contact links
 
-Profile card behavior and structure live in `components/ProfileCard.tsx`.
+Profile panel structure lives in `components/ProfileCard.tsx`.
 
-Profile card visual styling and animation effects live in `app/globals.css`.
+Site-wide styling lives in `app/globals.css`.
 
 Images are stored in `public/`.
 
 ## Notes
 
-- The card UI is more custom than the rest of the page and uses regular CSS in `app/globals.css` alongside Tailwind utilities.
-- External badge images are loaded directly from badge providers in `app/page.tsx`.
+- The site is mostly static and server-rendered for good SEO by default.
+- `NEXT_PUBLIC_SITE_URL` can be set in production to generate canonical metadata, `robots.txt`, and `sitemap.xml` with the correct domain.
 - Deployment is set up for Vercel with Bun commands in `vercel.json`.
 
 ## Deployment
@@ -85,9 +89,3 @@ This repo includes `vercel.json` with:
 - `bun run dev` for local Vercel dev
 
 Those settings are picked up automatically.
-
-## Credit
-
-The profile card design is inspired by the React Bits profile card component:
-
-- https://www.reactbits.dev/components/profile-card

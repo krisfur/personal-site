@@ -1,338 +1,86 @@
-"use client";
-
-import React, { useEffect, useRef, useCallback, useMemo } from "react";
 import Image from "next/image";
+import type { ReactNode } from "react";
 
-interface ProfileCardProps {
-  avatarUrl: string;
-  iconUrl?: string;
-  grainUrl?: string;
-  behindGradient?: string;
-  innerGradient?: string;
-  showBehindGradient?: boolean;
-  className?: string;
-  miniAvatarUrl?: string;
-  name?: string;
-  title?: string;
-  handle?: string;
-  status?: string;
-  contactText?: string;
-  contactLinks?: { label: string; url: string; icon?: React.ReactNode }[];
-  showUserInfo?: boolean;
-  onContactClick?: () => void;
+interface ContactLink {
+  label: string;
+  url: string;
+  icon: ReactNode;
 }
 
-const DEFAULT_BEHIND_GRADIENT =
-  "radial-gradient(farthest-side circle at var(--pointer-x) var(--pointer-y),hsla(266,100%,90%,var(--card-opacity)) 4%,hsla(266,50%,80%,calc(var(--card-opacity)*0.75)) 10%,hsla(266,25%,70%,calc(var(--card-opacity)*0.5)) 50%,hsla(266,0%,60%,0) 100%),radial-gradient(35% 52% at 55% 20%,#00ffaac4 0%,#073aff00 100%),radial-gradient(100% 100% at 50% 50%,#00c1ffff 1%,#073aff00 76%),conic-gradient(from 124deg at 50% 50%,#c137ffff 0%,#07c6ffff 40%,#07c6ffff 60%,#c137ffff 100%)";
+interface ProfileCardProps {
+  photoUrl: string;
+  avatarUrl: string;
+  name: string;
+  title: string;
+  summary: string;
+  note?: string;
+  contactLinks: ContactLink[];
+}
 
-const DEFAULT_INNER_GRADIENT =
-  "linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)";
-
-const ANIMATION_CONFIG = {
-  SMOOTH_DURATION: 600,
-  INITIAL_DURATION: 1500,
-  INITIAL_X_OFFSET: 70,
-  INITIAL_Y_OFFSET: 60,
-} as const;
-
-const clamp = (value: number, min = 0, max = 100): number =>
-  Math.min(Math.max(value, min), max);
-
-const round = (value: number, precision = 3): number =>
-  parseFloat(value.toFixed(precision));
-
-const adjust = (
-  value: number,
-  fromMin: number,
-  fromMax: number,
-  toMin: number,
-  toMax: number,
-): number =>
-  round(toMin + ((toMax - toMin) * (value - fromMin)) / (fromMax - fromMin));
-
-const easeInOutCubic = (x: number): number =>
-  x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
-
-const ProfileCardComponent: React.FC<ProfileCardProps> = ({
-  avatarUrl = "<Placeholder for avatar URL>",
-  iconUrl = "<Placeholder for icon URL>",
-  grainUrl = "<Placeholder for grain URL>",
-  behindGradient,
-  innerGradient,
-  showBehindGradient = true,
-  className = "",
-  miniAvatarUrl,
-  name = "Javi A. Torres",
-  title = "Software Engineer",
-  handle = "javicodes",
-  status = "Online",
-  contactText = "Contact",
+export default function ProfileCard({
+  photoUrl,
+  avatarUrl,
+  name,
+  title,
+  summary,
+  note,
   contactLinks,
-  showUserInfo = true,
-  onContactClick,
-}) => {
-  const wrapRef = useRef<HTMLDivElement>(null);
-  const cardRef = useRef<HTMLDivElement>(null);
-  const rafIdRef = useRef<number | null>(null);
-
-  const animationHandlers = useMemo(() => {
-    const updateCardTransform = (
-      offsetX: number,
-      offsetY: number,
-      card: HTMLElement,
-      wrap: HTMLElement,
-    ) => {
-      const width = card.clientWidth;
-      const height = card.clientHeight;
-
-      const percentX = clamp((100 / width) * offsetX);
-      const percentY = clamp((100 / height) * offsetY);
-
-      const properties = {
-        "--pointer-x": `${percentX}%`,
-        "--pointer-y": `${percentY}%`,
-        "--background-x": `${adjust(percentX, 0, 100, 35, 65)}%`,
-        "--background-y": `${adjust(percentY, 0, 100, 35, 65)}%`,
-        "--pointer-from-center": `${clamp(Math.hypot(percentY - 50, percentX - 50) / 50, 0, 1)}`,
-        "--pointer-from-top": `${percentY / 100}`,
-        "--pointer-from-left": `${percentX / 100}`,
-      };
-
-      Object.entries(properties).forEach(([property, value]) => {
-        wrap.style.setProperty(property, value);
-      });
-    };
-
-    const createSmoothAnimation = (
-      duration: number,
-      startX: number,
-      startY: number,
-      card: HTMLElement,
-      wrap: HTMLElement,
-    ) => {
-      const startTime = performance.now();
-      const targetX = wrap.clientWidth / 2;
-      const targetY = wrap.clientHeight / 2;
-
-      const animationLoop = (currentTime: number) => {
-        const elapsed = currentTime - startTime;
-        const progress = clamp(elapsed / duration);
-        const easedProgress = easeInOutCubic(progress);
-
-        const currentX = adjust(easedProgress, 0, 1, startX, targetX);
-        const currentY = adjust(easedProgress, 0, 1, startY, targetY);
-
-        updateCardTransform(currentX, currentY, card, wrap);
-
-        if (progress < 1) {
-          rafIdRef.current = requestAnimationFrame(animationLoop);
-        }
-      };
-
-      rafIdRef.current = requestAnimationFrame(animationLoop);
-    };
-
-    return {
-      updateCardTransform,
-      createSmoothAnimation,
-      cancelAnimation: () => {
-        if (rafIdRef.current) {
-          cancelAnimationFrame(rafIdRef.current);
-          rafIdRef.current = null;
-        }
-      },
-    };
-  }, [rafIdRef]);
-
-  const handlePointerMove = useCallback(
-    (event: PointerEvent) => {
-      const card = cardRef.current;
-      const wrap = wrapRef.current;
-
-      if (!card || !wrap || !animationHandlers) return;
-
-      const rect = card.getBoundingClientRect();
-      animationHandlers.updateCardTransform(
-        event.clientX - rect.left,
-        event.clientY - rect.top,
-        card,
-        wrap,
-      );
-    },
-    [animationHandlers],
-  );
-
-  const handlePointerEnter = useCallback(() => {
-    const card = cardRef.current;
-    const wrap = wrapRef.current;
-
-    if (!card || !wrap || !animationHandlers) return;
-
-    animationHandlers.cancelAnimation();
-    wrap.classList.add("active");
-    card.classList.add("active");
-  }, [animationHandlers]);
-
-  const handlePointerLeave = useCallback(
-    (event: PointerEvent) => {
-      const card = cardRef.current;
-      const wrap = wrapRef.current;
-
-      if (!card || !wrap || !animationHandlers) return;
-
-      animationHandlers.createSmoothAnimation(
-        ANIMATION_CONFIG.SMOOTH_DURATION,
-        event.offsetX,
-        event.offsetY,
-        card,
-        wrap,
-      );
-      wrap.classList.remove("active");
-      card.classList.remove("active");
-    },
-    [animationHandlers],
-  );
-
-  useEffect(() => {
-    if (!animationHandlers) return;
-
-    const card = cardRef.current;
-    const wrap = wrapRef.current;
-
-    if (!card || !wrap) return;
-
-    const pointerMoveHandler = handlePointerMove as EventListener;
-    const pointerEnterHandler = handlePointerEnter as EventListener;
-    const pointerLeaveHandler = handlePointerLeave as EventListener;
-
-    card.addEventListener("pointerenter", pointerEnterHandler);
-    card.addEventListener("pointermove", pointerMoveHandler);
-    card.addEventListener("pointerleave", pointerLeaveHandler);
-
-    const initialX = wrap.clientWidth - ANIMATION_CONFIG.INITIAL_X_OFFSET;
-    const initialY = ANIMATION_CONFIG.INITIAL_Y_OFFSET;
-
-    animationHandlers.updateCardTransform(initialX, initialY, card, wrap);
-    animationHandlers.createSmoothAnimation(
-      ANIMATION_CONFIG.INITIAL_DURATION,
-      initialX,
-      initialY,
-      card,
-      wrap,
-    );
-
-    return () => {
-      card.removeEventListener("pointerenter", pointerEnterHandler);
-      card.removeEventListener("pointermove", pointerMoveHandler);
-      card.removeEventListener("pointerleave", pointerLeaveHandler);
-      animationHandlers.cancelAnimation();
-    };
-  }, [
-    animationHandlers,
-    handlePointerMove,
-    handlePointerEnter,
-    handlePointerLeave,
-  ]);
-
-  const cardStyle = useMemo(
-    () =>
-      ({
-        "--icon": iconUrl ? `url(${iconUrl})` : "none",
-        "--grain": grainUrl ? `url(${grainUrl})` : "none",
-        "--behind-gradient": showBehindGradient
-          ? (behindGradient ?? DEFAULT_BEHIND_GRADIENT)
-          : "none",
-        "--inner-gradient": innerGradient ?? DEFAULT_INNER_GRADIENT,
-      }) as React.CSSProperties,
-    [iconUrl, grainUrl, showBehindGradient, behindGradient, innerGradient],
-  );
-
-  const handleContactClick = useCallback(() => {
-    onContactClick?.();
-  }, [onContactClick]);
-
+}: ProfileCardProps) {
   return (
-    <div
-      ref={wrapRef}
-      className={`pc-card-wrapper ${className}`.trim()}
-      style={cardStyle}
-    >
-      <section ref={cardRef} className="pc-card">
-        <div className="pc-inside">
-          <div className="pc-shine" />
-          <div className="pc-glare" />
-          <div className="pc-content pc-avatar-content">
-            <Image
-              className="avatar"
-              src={avatarUrl}
-              alt={`${name || "User"} avatar`}
-              loading="lazy"
-              width={200}
-              height={200}
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.style.display = "none";
-              }}
-            />
-            {showUserInfo && (
-              <div className="pc-user-info">
-                <div className="pc-user-details">
-                  <div className="pc-mini-avatar">
-                    <Image
-                      src={miniAvatarUrl || avatarUrl}
-                      alt={`${name || "User"} mini avatar`}
-                      loading="lazy"
-                      width={40}
-                      height={40}
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.style.opacity = "0.5";
-                        target.src = avatarUrl;
-                      }}
-                    />
-                  </div>
-                  <div className="pc-user-text">
-                    <div className="pc-handle">@{handle}</div>
-                    <div className="pc-status">{status}</div>
-                  </div>
-                </div>
-                {contactLinks?.length ? (
-                  <div className="pc-contact-links">
-                    {contactLinks.map((link, i) => (
-                      <a
-                        key={i}
-                        href={link.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="pc-contact-btn-icon"
-                      >
-                        <span>{link.icon}</span>
-                      </a>
-                    ))}
-                  </div>
-                ) : (
-                  <button
-                    className="pc-contact-btn"
-                    onClick={handleContactClick}
-                  >
-                    {contactText}
-                  </button>
-                )}
-              </div>
-            )}
-          </div>
-          <div className="pc-content">
-            <div className="pc-details">
-              <h3>{name}</h3>
-              <p>{title}</p>
+    <aside className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.045] shadow-[0_32px_80px_rgba(0,0,0,0.35)]">
+      <div className="relative aspect-[4/5] overflow-hidden border-b border-white/10 bg-slate-950/60">
+        <Image
+          src={photoUrl}
+          alt={`${name} portrait`}
+          fill
+          priority
+          sizes="(min-width: 1024px) 28rem, (min-width: 768px) 24rem, 100vw"
+          className="object-cover object-top"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#11131a] via-[#11131a]/25 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 p-6 sm:p-7">
+          <div className="flex items-center gap-3 rounded-full border border-white/10 bg-black/25 px-3 py-2 backdrop-blur">
+            <div className="relative h-11 w-11 overflow-hidden rounded-full border border-white/15 bg-white/5">
+              <Image
+                src={avatarUrl}
+                alt={`${name} avatar`}
+                fill
+                sizes="44px"
+                className="object-cover"
+              />
+            </div>
+            <div>
+              <p className="text-sm font-medium text-white">{name}</p>
+              <p className="text-sm text-slate-300">{title}</p>
             </div>
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+
+      <div className="space-y-6 p-6 sm:p-7">
+        <div className="space-y-3">
+          <p className="text-base leading-7 text-slate-200">{summary}</p>
+          {note ? <p className="text-sm leading-6 text-slate-400">{note}</p> : null}
+        </div>
+
+        <div className="grid grid-cols-2 gap-3">
+          {contactLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.url}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={link.label}
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.035] px-4 py-3 text-sm font-medium text-slate-100 transition hover:border-white/20 hover:bg-white/[0.08]"
+            >
+              <span className="text-lg" aria-hidden="true">
+                {link.icon}
+              </span>
+              <span>{link.label}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </aside>
   );
-};
-
-const ProfileCard = React.memo(ProfileCardComponent);
-
-export default ProfileCard;
+}
