@@ -165,7 +165,7 @@ export default function Home() {
 
           <div className="space-y-5">
             <section className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-7 shadow-[0_24px_70px_rgba(0,0,0,0.25)] sm:p-9">
-              <h1 className="max-w-4xl font-serif text-5xl leading-tight text-white sm:text-6xl sm:leading-tight">
+              <h1 className="max-w-4xl font-medium uppercase tracking-[0.24em] text-slate-400 text-2xl leading-tight sm:text-2xl sm:leading-tight">
                 Senior Data Engineer · London
               </h1>
               <div className="mt-6 max-w-3xl space-y-4 text-lg leading-8 text-slate-300">
@@ -185,21 +185,16 @@ export default function Home() {
                     Programming languages
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {[
-                      "C++",
-                      "Go",
-                      "Python",
-                      "Rust",
-                      "SQL",
-                      "TypeScript",
-                    ].map((item) => (
-                      <span
-                        key={item}
-                        className="rounded-full border border-white/10 bg-white/[0.045] px-3 py-1.5 text-sm text-slate-300"
-                      >
-                        {item}
-                      </span>
-                    ))}
+                    {["C++", "Go", "Python", "Rust", "SQL", "TypeScript"].map(
+                      (item) => (
+                        <span
+                          key={item}
+                          className="rounded-full border border-white/10 bg-white/[0.045] px-3 py-1.5 text-sm text-slate-300"
+                        >
+                          {item}
+                        </span>
+                      ),
+                    )}
                   </div>
                 </div>
                 <div className="space-y-2">
