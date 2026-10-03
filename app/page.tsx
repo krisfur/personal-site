@@ -248,9 +248,10 @@ export default function Home() {
         </header>
 
         <div className="space-y-3 text-base leading-7 text-slate-300">
+          <p>{intro}</p>
           <p>
-            {intro} Experienced in academia, low-level software engineering, and
-            data science environments, with a focus on DevOps, DataOps, and
+            Experienced in academia, low-level software engineering, and data
+            science environments, with a focus on DevOps, DataOps, and
             understanding the strengths and weaknesses of programming languages.
           </p>
           <p className="text-sm text-slate-400">
