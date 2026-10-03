@@ -8,25 +8,26 @@ const inter = Inter({ subsets: ["latin"], display: "swap" });
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Krzysztof Furman | Senior Data Engineer",
+    default: "Krzysztof Furman | Lead Data Engineer",
     template: "%s | Krzysztof Furman",
   },
   description:
-    "Senior Data Engineer focused on reliable data systems, developer tooling, and cloud infrastructure across Python, Go, Rust, SQL, TypeScript, Airflow, Snowflake, AWS, and Azure.",
+    "Lead Data Engineer focused on reliable data systems, developer tooling, and cloud infrastructure across C++, Go, Python, Rust, SQL, TypeScript, Airflow, AWS, Azure, and Snowflake.",
   applicationName: "Krzysztof Furman",
   keywords: [
     "Krzysztof Furman",
-    "Senior Data Engineer",
+    "Lead Data Engineer",
     "Data Engineering",
-    "Python",
+    "C++",
     "Go",
+    "Python",
     "Rust",
-    "TypeScript",
     "SQL",
+    "TypeScript",
     "Apache Airflow",
-    "Snowflake",
     "AWS",
     "Azure",
+    "Snowflake",
   ],
   authors: [{ name: "Krzysztof Furman" }],
   creator: "Krzysztof Furman",
@@ -37,16 +38,16 @@ export const metadata: Metadata = {
     type: "website",
     url: siteUrl,
     siteName: "Krzysztof Furman",
-    title: "Krzysztof Furman | Senior Data Engineer",
+    title: "Krzysztof Furman | Lead Data Engineer",
     description:
-      "Senior Data Engineer focused on reliable data systems, developer tooling, and cloud infrastructure.",
+      "Lead Data Engineer focused on reliable data systems, developer tooling, and cloud infrastructure.",
     locale: "en_GB",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Krzysztof Furman | Senior Data Engineer",
+    title: "Krzysztof Furman | Lead Data Engineer",
     description:
-      "Senior Data Engineer focused on reliable data systems, developer tooling, and cloud infrastructure.",
+      "Lead Data Engineer focused on reliable data systems, developer tooling, and cloud infrastructure.",
   },
   robots: {
     index: true,

@@ -1,8 +1,8 @@
 # Personal site
 
-Personal portfolio site, built with Next.js, React, TypeScript, Tailwind CSS, and Bun.
+Personal portfolio site, built with Next.js, React, TypeScript, Tailwind CSS, and pnpm.
 
-The app is currently a single-page site with an editorial two-column layout: a profile panel, a concise introduction, experience, skills, selected projects, and writing links.
+The app is a single-page, single-column site: a header with photo and links, a short introduction, skills, experience, selected projects, and writing links.
 
 ## Stack
 
@@ -10,20 +10,20 @@ The app is currently a single-page site with an editorial two-column layout: a p
 - React 19
 - TypeScript
 - Tailwind CSS
-- Bun
+- pnpm
 
 ## Local development
 
 Install dependencies:
 
 ```bash
-bun install
+pnpm install
 ```
 
 Start the development server:
 
 ```bash
-bun run dev
+pnpm dev
 ```
 
 Open `http://localhost:3000`.
@@ -31,9 +31,9 @@ Open `http://localhost:3000`.
 Other useful commands:
 
 ```bash
-bun run lint
-bun run build
-bun run start
+pnpm lint
+pnpm build
+pnpm start
 ```
 
 ## Project structure
@@ -47,12 +47,8 @@ app/
   sitemap.ts          Sitemap generation
   site-config.ts      Site URL configuration
 
-components/
-  ProfileCard.tsx     Profile panel component
-
 public/
-  kris-taller.png     Main card image
-  kris.jpg            Mini avatar image
+  kris-headshot.png   Header photo
 ```
 
 ## What to edit
@@ -64,9 +60,7 @@ Most content updates happen in `app/page.tsx`:
 - skills
 - selected projects
 - writing links
-- profile panel props such as name, title, summary, and contact links
-
-Profile panel structure lives in `components/ProfileCard.tsx`.
+- header name, title, and contact links
 
 Site-wide styling lives in `app/globals.css`.
 
@@ -76,7 +70,8 @@ Images are stored in `public/`.
 
 - The site is mostly static and server-rendered for good SEO by default.
 - `NEXT_PUBLIC_SITE_URL` can be set in production to generate canonical metadata, `robots.txt`, and `sitemap.xml` with the correct domain.
-- Deployment is set up for Vercel with Bun commands in `vercel.json`.
+- Deployment is set up for Vercel with pnpm commands in `vercel.json`.
+- `pnpm-workspace.yaml` enforces a 7-day minimum release age for dependencies.
 
 ## Deployment
 
@@ -84,8 +79,8 @@ The site is deployed on Vercel.
 
 This repo includes `vercel.json` with:
 
-- `bun install` for install
-- `bun run build` for build
-- `bun run dev` for local Vercel dev
+- `pnpm install --frozen-lockfile` for install
+- `pnpm build` for build
+- `pnpm dev` for local Vercel dev
 
 Those settings are picked up automatically.
