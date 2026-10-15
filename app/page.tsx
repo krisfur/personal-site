@@ -92,7 +92,10 @@ const featuredProjects: readonly FeaturedProject[] = [
       "Minimalist offline music player for iOS, iPadOS, and macOS, built with SwiftUI and first-party Apple frameworks.",
     links: [
       { label: "GitHub", url: "https://github.com/krisfur/flackbird" },
-      { label: "Website", url: "https://krisfur.github.io/flackbird/" },
+      {
+        label: "AppStore",
+        url: "https://apps.apple.com/gb/app/flackbird/id6817509520",
+      },
     ],
     stack: ["Swift", "SwiftUI", "iOS", "macOS"],
   },

@@ -1,3 +1,9 @@
 minimumReleaseAge: 10080
 allowBuilds:
   unrs-resolver: false
+# Plugins bundled by eslint-config-next haven't declared eslint 10 support yet
+peerDependencyRules:
+  allowedVersions:
+    eslint-plugin-react>eslint: "10"
+    eslint-plugin-import>eslint: "10"
+    eslint-plugin-jsx-a11y>eslint: "10"
