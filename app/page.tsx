@@ -94,7 +94,7 @@ const featuredProjects: readonly FeaturedProject[] = [
       { label: "GitHub", url: "https://github.com/krisfur/flackbird" },
       {
         label: "AppStore",
-        url: "https://apps.apple.com/gb/app/flackbird/id6817509520",
+        url: "https://apps.apple.com/app/flackbird/id6817509520",
       },
     ],
     stack: ["Swift", "SwiftUI", "iOS", "macOS"],
